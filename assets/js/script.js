@@ -73,26 +73,144 @@ console.log("Current time is " + moment().hours());
 
 
 // storage
-
-
 let eventStorage = [] || JSON.parse(window.localStorage.getItem("eventStorage"));
 
 let nineFormSubmit = document.querySelector('#nine-form');
 
-
 nineFormSubmit.addEventListener("submit", function(event) {
     event.preventDefault();
-    let nineInput = document.querySelector('#nine-input');    
-    
+    let nineInput = document.querySelector('#nine-input');
     let eventDescription = {
         description: nineInput.value,
         time: nine.time
     }
-
-    localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+    eventStorage.push(eventDescription);
 });
 
-// eventStorage.push(eventDescription);
+let retrievedEvent = JSON.parse(localStorage.getItem("eventStorage"));
+
+for (let j = 0; j < retrievedEvent.length; j++) {
+    console.log(retrievedEvent[j].description);
+  }
 
 
-// let eventTime = document.querySelector('');
+// let eventDescription = [{ 'description': 'nineInput.value'}, { 
+//     '': 'Robert', 'score': 80, 'time': '15:00' }];
+//     localStorage.setItem('testObject', JSON.stringify(testObject));
+    
+//     var retrievedObject = JSON.parse(localStorage.getItem('testObject'));
+    
+//     var tbody = document.getElementById('tbody');
+    
+//     for (let i = 0; i < retrievedObject.length; i++) {
+//       var tr = "<tr>";
+//       tr += "<td>Name</td>" + "<td>" + retrievedObject[i].name + "</td></tr>";
+//       tr += "<td>Score</td>" + "<td>" + retrievedObject[i].score + "</td></tr>";
+//       tr += "<td>Time</td>" + "<td>" + retrievedObject[i].time + "</td></tr>";
+//       tbody.innerHTML += tr;
+//     }
+
+// localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+
+// eventStorage.forEach(function(events) {
+//     nineInput.textContent = eventDescription.description;
+//     window.localStorage.getItem("eventStorage", JSON.stringify(eventDescription));
+// });
+
+// console.log(localStorage.getItem(eventStorage));
+
+// let tenFormSubmit = document.querySelector('#ten-form');
+
+// tenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let tenInput = document.querySelector('#ten-input');
+//     let eventDescription = {
+//         description: tenInput.value,
+//         time: ten.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let elevenFormSubmit = document.querySelector('#eleven-form');
+
+// elevenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let elevenInput = document.querySelector('#eleven-input');
+//     let eventDescription = {
+//         description: elevenInput.value,
+//         time: eleven.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let twelveFormSubmit = document.querySelector('#twelve-form');
+
+// twelveFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let twelveInput = document.querySelector('#twelve-input');
+//     let eventDescription = {
+//         description: twelveInput.value,
+//         time: twelve.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let thirteenFormSubmit = document.querySelector('#thirteen-form');
+
+// thirteenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let thirteenInput = document.querySelector('#thirteen-input');
+//     let eventDescription = {
+//         description: thirteenInput.value,
+//         time: thirteen.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let fourteenFormSubmit = document.querySelector('#fourteen-form');
+
+// fourteenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let fourteenInput = document.querySelector('#fourteen-input');
+//     let eventDescription = {
+//         description: fourteenInput.value,
+//         time: fourteen.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let fifteenFormSubmit = document.querySelector('#fifteen-form');
+
+// fifteenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let fifteenInput = document.querySelector('#fifteen-input');
+//     let eventDescription = {
+//         description: fifteenInput.value,
+//         time: fifteen.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let sixteenFormSubmit = document.querySelector('#sixteen-form');
+
+// sixteenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let sixteenInput = document.querySelector('#sixteen-input');
+//     let eventDescription = {
+//         description: sixteenInput.value,
+//         time: sixteen.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
+
+// let seventeenFormSubmit = document.querySelector('#seventeen-form');
+
+// seventeenFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let seventeenInput = document.querySelector('#seventeen-input');
+//     let eventDescription = {
+//         description: seventeenInput.value,
+//         time: seventeen.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+// });
