@@ -3,14 +3,6 @@ setInterval(function() {
     let today = moment();
     $("#live-date").text(today.format("dddd, MMMM Do"));
 }, 1000);
-
-// setInterval(deezNuts, 1000);
-// function deezNuts() {
-    //     let today = moment();
-    //     $("#live-date").text(today.format("dddd, MMMM Do"));
-    // }
-    
-    // let currentTime = moment().format();
     
     let nine = document.querySelector("#nine");
     nine.time = 9;
@@ -72,26 +64,70 @@ console.log("Current time is " + moment().hours());
 //     }
 
 
-// storage
-let eventStorage = [] || JSON.parse(window.localStorage.getItem("eventStorage"));
+// storage- put something in local storage on page load, compare if something is there, if so store it 
+// in a variable, add to the variable, store it backjin, next time loaded it will be able to use contents
+// array is set outside of local storage, then sent, where it is a string,  pull it out to edit the
+// array again
 
-let nineFormSubmit = document.querySelector('#nine-form');
 
-nineFormSubmit.addEventListener("submit", function(event) {
-    event.preventDefault();
-    let nineInput = document.querySelector('#nine-input');
-    let eventDescription = {
-        description: nineInput.value,
-        time: nine.time
+storageLoad();
+
+function storageLoad(){
+if (localStorage.getItem("eventStorage") === null) {
+        localStorage.setItem("eventStorage", "");
+    // } else if (localStorage.getItem("eventStorage") !== null) {
+    //     JSON.parse(window.localStorage.getItem("eventStorage"));
+    // }
+    // return eventStorage;
+}
+};
+
+function subToStorage(userChoice) {
+    let eventDescription = userChoice.currentTarget;
+    if (eventStorage.includes(eventDescription) !== true) {
+        eventStorage.push(eventDescription);
+        localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
     }
-    eventStorage.push(eventDescription);
-});
+}
 
-let retrievedEvent = JSON.parse(localStorage.getItem("eventStorage"));
+// console.log(eventStorage);
 
-for (let j = 0; j < retrievedEvent.length; j++) {
-    console.log(retrievedEvent[j].description);
-  }
+
+
+
+// let eventStorage = [] || JSON.parse(window.localStorage.getItem("eventStorage"));
+// console.log(eventStorage); 
+// eventStorage = console.log(window.localStorage.getItem("eventStorage"));
+// console.log(JSON.parse(window.localStorage.getItem("eventStorage")));
+
+
+
+// let nineFormSubmit = document.querySelector('#nine-form');
+
+// nineFormSubmit.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     let nineInput = document.querySelector('#nine-input');
+//     let eventDescription = {
+//         description: nineInput.value,
+//         time: nine.time
+//     }
+//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+//     eventStorage.push(eventDescription);
+// });
+
+
+// localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+
+// eventStorage.forEach(function(events) {
+//     nineInput.textContent = eventDescription.description;
+//     window.localStorage.getItem("eventStorage", JSON.stringify(eventDescription));
+// });
+
+// let retrievedEvent = JSON.parse(localStorage.getItem("eventStorage"));
+
+// for (let j = 0; j < retrievedEvent.length; j++) {
+//     console.log(retrievedEvent[j].description);
+//   }
 
 
 // let eventDescription = [{ 'description': 'nineInput.value'}, { 
@@ -110,12 +146,6 @@ for (let j = 0; j < retrievedEvent.length; j++) {
 //       tbody.innerHTML += tr;
 //     }
 
-// localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-
-// eventStorage.forEach(function(events) {
-//     nineInput.textContent = eventDescription.description;
-//     window.localStorage.getItem("eventStorage", JSON.stringify(eventDescription));
-// });
 
 // console.log(localStorage.getItem(eventStorage));
 
