@@ -1,10 +1,10 @@
-// Declaring time block variables
+// Declaring time block variables to change colors
 let nine = document.getElementById("nine");
 nine.time = 9;
-// let ten = document.querySelector("#ten");
-// ten.time = 10;
-// let eleven = document.querySelector("#eleven");
-// eleven.time = 11;
+let ten = document.querySelector("#ten");
+ten.time = 10;
+let eleven = document.querySelector("#eleven");
+eleven.time = 11;
 // let twelve = document.querySelector("#twelve");
 // twelve.time = 12;
 // let thirteen = document.querySelector("#thirteen");
@@ -18,10 +18,6 @@ nine.time = 9;
 // let seventeen = document.querySelector("#seventeen");
 // seventeen.time = 17;
 
-// Declaring local storage outputs
-const nineEvent = document.getElementById("nineInput");
-const nineInsert = document.getElementById("nineInsert");
-
 // Displaying moment current date, refreshed every second.
 let currentMoment = setInterval(function () {
   let today = moment();
@@ -31,14 +27,14 @@ let currentMoment = setInterval(function () {
 // Creating an array of the time variables
 let timeArray = [
   nine,
-//   ten,
-//   eleven,
-//   twelve,
-//   thirteen,
-//   fourteen,
-//   fifteen,
-//   sixteen,
-//   seventeen,
+  ten,
+  eleven,
+  // twelve,
+  // thirteen,
+  // fourteen,
+  // fifteen,
+  // sixteen,
+  // seventeen,
 ];
 
 console.log("Current time is " + moment().hours());
@@ -65,181 +61,159 @@ const isItTime = () => {
   }
 };
 
-// Recolors time blocks
+// Recolor time blocks based on current time
 isItTime();
-
-// for (let i = 0; i < timeArray.length; i++) {
-//     // schedTime = timeArray[i];
-//     console.log("Time is " + timeArray[i].time);
-//     }
 
 // storage- put something in local storage on page load, compare if something is there, if so store it
 // in a variable, add to the variable, store it back in, next time loaded it will be able to use contents
-// array is set outside of local storage, then sent, where it is a string,  pull it out to edit the
-// array again
+// array is set outside of local storage, then sent, where it is a string, pull it out to edit the array again
 
-// Creates eventStorage item in local storage if it doesn't exist.
-const storageLoad = () => {
-    if (localStorage.getItem("eventStorage") === null) {
-        localStorage.setItem("eventStorage", "Test");
-    } else if (localStorage.getItem("eventStorage") !== null) {
-        console.log(localStorage.getItem("eventStorage"));
-    }
-};
+// Logic for 9AM event block
+// Establish variables
+const nineInpTxt = document.getElementById("nineInpTxt");
+const nineInsBtn = document.getElementById("nineInsBtn");
+const nineOutput = document.getElementById("nineOutput");
 
-storageLoad();
+// Create array or parse array on load
+let nineStorage = [JSON.parse(localStorage.getItem("nineStorage"))] || [];
+console.log(nineStorage);
 
-const saveToStorage = (userChoice) => {
-  let eventDescription = userChoice.currentTarget;
-  if (eventStorage.includes(eventDescription) !== true) {
-    eventStorage.push(eventDescription);
-    localStorage.setItem("eventStorage", JSON.stringify(eventStorage));
-}
-};
+// Populate event div with local storage data if found, else div is empty
+nineOutput.textContent = nineStorage;
 
-let eventStorage = [] || JSON.parse(window.localStorage.getItem("eventStorage"));
-console.log(eventStorage);
-eventStorage = console.log(window.localStorage.getItem("eventStorage"));
-console.log(JSON.parse(window.localStorage.getItem("eventStorage")));
+// Save event
+nineInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const nineEvent = nineInpTxt.value;
 
-console.log(eventStorage);
+  //   If form has text
+  if (nineEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("nineStorage"));
 
-let nineFormSubmit = document.querySelector('#nine-form');
+    // Update the event in storage array
+    nineStorage.shift();
+    nineStorage.push(nineEvent);
 
-nineFormSubmit.addEventListener("submit", function(event) {
-    event.preventDefault();
-    let nineInput = document.querySelector('#nine-input');
-    let eventDescription = {
-        description: nineInput.value,
-        time: nine.time
-    }
-    localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-    eventStorage.push(eventDescription);
-});
+    // Send the updated array to local storage
+    localStorage.setItem("nineStorage", JSON.stringify(nineEvent));
+    console.log("New event is " + localStorage.getItem("nineStorage"));
 
-localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-
-eventStorage.forEach(function(events) {
-    nineInput.textContent = eventDescription.description;
-    window.localStorage.getItem("eventStorage", JSON.stringify(eventDescription));
-});
-
-let retrievedEvent = JSON.parse(localStorage.getItem("eventStorage"));
-
-for (let j = 0; j < retrievedEvent.length; j++) {
-    console.log(retrievedEvent[j].description);
+    // Change the text content of the div to the new event
+    nineOutput.textContent = JSON.parse(localStorage.getItem("nineStorage"));
   }
+};
 
-let eventDescription = [{ 'description': 'nineInput.value'}, {
-    '': 'Robert', 'score': 80, 'time': '15:00' }];
-    localStorage.setItem('testObject', JSON.stringify(testObject));
+// Logic for 10AM event block
+// Establish variables
+const tenInpTxt = document.getElementById("tenInpTxt");
+const tenInsBtn = document.getElementById("tenInsBtn");
+const tenOutput = document.getElementById("tenOutput");
 
-    var retrievedObject = JSON.parse(localStorage.getItem('testObject'));
+// Create array or parse array on load
+let tenStorage = [JSON.parse(localStorage.getItem("tenStorage"))] || [];
+console.log(tenStorage);
 
-    var tbody = document.getElementById('tbody');
+// Populate event div with local storage data if found, else div is empty
+tenOutput.textContent = tenStorage;
 
-    for (let i = 0; i < retrievedObject.length; i++) {
-      var tr = "<tr>";
-      tr += "<td>Name</td>" + "<td>" + retrievedObject[i].name + "</td></tr>";
-      tr += "<td>Score</td>" + "<td>" + retrievedObject[i].score + "</td></tr>";
-      tr += "<td>Time</td>" + "<td>" + retrievedObject[i].time + "</td></tr>";
-      tbody.innerHTML += tr;
-    }
+// Save event
+tenInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const tenEvent = tenInpTxt.value;
 
-console.log(localStorage.getItem(eventStorage));
+  //   If form has text
+  if (tenEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("tenStorage"));
 
-// let tenFormSubmit = document.querySelector('#ten-form');
+    // Update the event in storage array
+    tenStorage.shift();
+    tenStorage.push(tenEvent);
 
-// tenFormSubmit.addEventListener("submit", function(event) {
+    // Send the updated array to local storage
+    localStorage.setItem("tenStorage", JSON.stringify(tenEvent));
+    console.log("New event is " + localStorage.getItem("tenStorage"));
+
+    // Change the text content of the div to the new event
+    tenOutput.textContent = JSON.parse(localStorage.getItem("tenStorage"));
+  }
+};
+
+// Logic for 11AM event block
+// Establish variables
+const elevenInpTxt = document.getElementById("elevenInpTxt");
+const elevenInsBtn = document.getElementById("elevenInsBtn");
+const elevenOutput = document.getElementById("elevenOutput");
+
+// Create array or parse array on load
+let elevenStorage = [JSON.parse(localStorage.getItem("elevenStorage"))] || [];
+console.log(elevenStorage);
+
+// Populate event div with local storage data if found, else div is empty
+elevenOutput.textContent = elevenStorage;
+
+// Save event
+elevenInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const elevenEvent = elevenInpTxt.value;
+
+  //   If form has text
+  if (elevenEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("elevenStorage"));
+
+    // Update the event in storage array
+    elevenStorage.shift();
+    elevenStorage.push(elevenEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("elevenStorage", JSON.stringify(elevenEvent));
+    console.log("New event is " + localStorage.getItem("elevenStorage"));
+
+    // Change the text content of the div to the new event
+    elevenOutput.textContent = JSON.parse(localStorage.getItem("elevenStorage"));
+  }
+};
+
+// let nineFormSubmit = document.querySelector('#nine-form');
+
+// nineFormSubmit.addEventListener("submit", function(event) {
 //     event.preventDefault();
-//     let tenInput = document.querySelector('#ten-input');
+//     let nineInput = document.querySelector('#nine-input');
 //     let eventDescription = {
-//         description: tenInput.value,
-//         time: ten.time
+//         description: nineInput.value,
+//         time: nine.time
 //     }
 //     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
+//     eventStorage.push(eventDescription);
 // });
 
-// let elevenFormSubmit = document.querySelector('#eleven-form');
+// localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
 
-// elevenFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let elevenInput = document.querySelector('#eleven-input');
-//     let eventDescription = {
-//         description: elevenInput.value,
-//         time: eleven.time
+// eventStorage.forEach(function(events) {
+//     nineInput.textContent = eventDescription.description;
+//     window.localStorage.getItem("eventStorage", JSON.stringify(eventDescription));
+// });
+
+// let retrievedEvent = JSON.parse(localStorage.getItem("eventStorage"));
+
+// for (let j = 0; j < retrievedEvent.length; j++) {
+//     console.log(retrievedEvent[j].description);
+//   }
+
+// let eventDescription = [{ 'description': 'nineInput.value'}, {
+//     '': 'Robert', 'score': 80, 'time': '15:00' }];
+//     localStorage.setItem('testObject', JSON.stringify(testObject));
+
+//     var retrievedObject = JSON.parse(localStorage.getItem('testObject'));
+
+//     var tbody = document.getElementById('tbody');
+
+//     for (let i = 0; i < retrievedObject.length; i++) {
+//       var tr = "<tr>";
+//       tr += "<td>Name</td>" + "<td>" + retrievedObject[i].name + "</td></tr>";
+//       tr += "<td>Score</td>" + "<td>" + retrievedObject[i].score + "</td></tr>";
+//       tr += "<td>Time</td>" + "<td>" + retrievedObject[i].time + "</td></tr>";
+//       tbody.innerHTML += tr;
 //     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
-
-// let twelveFormSubmit = document.querySelector('#twelve-form');
-
-// twelveFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let twelveInput = document.querySelector('#twelve-input');
-//     let eventDescription = {
-//         description: twelveInput.value,
-//         time: twelve.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
-
-// let thirteenFormSubmit = document.querySelector('#thirteen-form');
-
-// thirteenFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let thirteenInput = document.querySelector('#thirteen-input');
-//     let eventDescription = {
-//         description: thirteenInput.value,
-//         time: thirteen.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
-
-// let fourteenFormSubmit = document.querySelector('#fourteen-form');
-
-// fourteenFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let fourteenInput = document.querySelector('#fourteen-input');
-//     let eventDescription = {
-//         description: fourteenInput.value,
-//         time: fourteen.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
-
-// let fifteenFormSubmit = document.querySelector('#fifteen-form');
-
-// fifteenFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let fifteenInput = document.querySelector('#fifteen-input');
-//     let eventDescription = {
-//         description: fifteenInput.value,
-//         time: fifteen.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
-
-// let sixteenFormSubmit = document.querySelector('#sixteen-form');
-
-// sixteenFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let sixteenInput = document.querySelector('#sixteen-input');
-//     let eventDescription = {
-//         description: sixteenInput.value,
-//         time: sixteen.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
-
-// let seventeenFormSubmit = document.querySelector('#seventeen-form');
-
-// seventeenFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let seventeenInput = document.querySelector('#seventeen-input');
-//     let eventDescription = {
-//         description: seventeenInput.value,
-//         time: seventeen.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-// });
