@@ -5,18 +5,18 @@ let ten = document.querySelector("#ten");
 ten.time = 10;
 let eleven = document.querySelector("#eleven");
 eleven.time = 11;
-// let twelve = document.querySelector("#twelve");
-// twelve.time = 12;
-// let thirteen = document.querySelector("#thirteen");
-// thirteen.time = 13;
-// let fourteen = document.querySelector("#fourteen");
-// fourteen.time = 14;
-// let fifteen = document.querySelector("#fifteen");
-// fifteen.time = 15;
-// let sixteen = document.querySelector("#sixteen");
-// sixteen.time = 16;
-// let seventeen = document.querySelector("#seventeen");
-// seventeen.time = 17;
+let twelve = document.querySelector("#twelve");
+twelve.time = 12;
+let thirteen = document.querySelector("#thirteen");
+thirteen.time = 13;
+let fourteen = document.querySelector("#fourteen");
+fourteen.time = 14;
+let fifteen = document.querySelector("#fifteen");
+fifteen.time = 15;
+let sixteen = document.querySelector("#sixteen");
+sixteen.time = 16;
+let seventeen = document.querySelector("#seventeen");
+seventeen.time = 17;
 
 // Displaying moment current date, refreshed every second.
 let currentMoment = setInterval(function () {
@@ -29,12 +29,12 @@ let timeArray = [
   nine,
   ten,
   eleven,
-  // twelve,
-  // thirteen,
-  // fourteen,
-  // fifteen,
-  // sixteen,
-  // seventeen,
+  twelve,
+  thirteen,
+  fourteen,
+  fifteen,
+  sixteen,
+  seventeen,
 ];
 
 console.log("Current time is " + moment().hours());
@@ -173,6 +173,222 @@ elevenInsBtn.onclick = function () {
 
     // Change the text content of the div to the new event
     elevenOutput.textContent = JSON.parse(localStorage.getItem("elevenStorage"));
+  }
+};
+
+// Logic for 12PM event block
+// Establish variables
+const twelveInpTxt = document.getElementById("twelveInpTxt");
+const twelveInsBtn = document.getElementById("twelveInsBtn");
+const twelveOutput = document.getElementById("twelveOutput");
+
+// Create array or parse array on load
+let twelveStorage = [JSON.parse(localStorage.getItem("twelveStorage"))] || [];
+console.log(twelveStorage);
+
+// Populate event div with local storage data if found, else div is empty
+twelveOutput.textContent = twelveStorage;
+
+// Save event
+twelveInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const twelveEvent = twelveInpTxt.value;
+
+  //   If form has text
+  if (twelveEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("twelveStorage"));
+
+    // Update the event in storage array
+    twelveStorage.shift();
+    twelveStorage.push(twelveEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("twelveStorage", JSON.stringify(twelveEvent));
+    console.log("New event is " + localStorage.getItem("twelveStorage"));
+
+    // Change the text content of the div to the new event
+    twelveOutput.textContent = JSON.parse(localStorage.getItem("twelveStorage"));
+  }
+};
+
+// Logic for 1PM event block
+// Establish variables
+const oneInpTxt = document.getElementById("oneInpTxt");
+const oneInsBtn = document.getElementById("oneInsBtn");
+const oneOutput = document.getElementById("oneOutput");
+
+// Create array or parse array on load
+let oneStorage = [JSON.parse(localStorage.getItem("oneStorage"))] || [];
+console.log(oneStorage);
+
+// Populate event div with local storage data if found, else div is empty
+oneOutput.textContent = oneStorage;
+
+// Save event
+oneInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const oneEvent = oneInpTxt.value;
+
+  //   If form has text
+  if (oneEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("oneStorage"));
+
+    // Update the event in storage array
+    oneStorage.shift();
+    oneStorage.push(oneEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("oneStorage", JSON.stringify(oneEvent));
+    console.log("New event is " + localStorage.getItem("oneStorage"));
+
+    // Change the text content of the div to the new event
+    oneOutput.textContent = JSON.parse(localStorage.getItem("oneStorage"));
+  }
+};
+
+// Logic for 2PM event block
+// Establish variables
+const twoInpTxt = document.getElementById("twoInpTxt");
+const twoInsBtn = document.getElementById("twoInsBtn");
+const twoOutput = document.getElementById("twoOutput");
+
+// Create array or parse array on load
+let twoStorage = [JSON.parse(localStorage.getItem("twoStorage"))] || [];
+console.log(twoStorage);
+
+// Populate event div with local storage data if found, else div is empty
+twoOutput.textContent = twoStorage;
+
+// Save event
+twoInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const twoEvent = twoInpTxt.value;
+
+  //   If form has text
+  if (twoEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("twoStorage"));
+
+    // Update the event in storage array
+    twoStorage.shift();
+    twoStorage.push(twoEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("twoStorage", JSON.stringify(twoEvent));
+    console.log("New event is " + localStorage.getItem("twoStorage"));
+
+    // Change the text content of the div to the new event
+    twoOutput.textContent = JSON.parse(localStorage.getItem("twoStorage"));
+  }
+};
+
+// Logic for 3PM event block
+// Establish variables
+const threeInpTxt = document.getElementById("threeInpTxt");
+const threeInsBtn = document.getElementById("threeInsBtn");
+const threeOutput = document.getElementById("threeOutput");
+
+// Create array or parse array on load
+let threeStorage = [JSON.parse(localStorage.getItem("threeStorage"))] || [];
+console.log(threeStorage);
+
+// Populate event div with local storage data if found, else div is empty
+threeOutput.textContent = threeStorage;
+
+// Save event
+threeInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const threeEvent = threeInpTxt.value;
+
+  //   If form has text
+  if (threeEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("threeStorage"));
+
+    // Update the event in storage array
+    threeStorage.shift();
+    threeStorage.push(threeEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("threeStorage", JSON.stringify(threeEvent));
+    console.log("New event is " + localStorage.getItem("threeStorage"));
+
+    // Change the text content of the div to the new event
+    threeOutput.textContent = JSON.parse(localStorage.getItem("threeStorage"));
+  }
+};
+
+// Logic for 4PM event block
+// Establish variables
+const fourInpTxt = document.getElementById("fourInpTxt");
+const fourInsBtn = document.getElementById("fourInsBtn");
+const fourOutput = document.getElementById("fourOutput");
+
+// Create array or parse array on load
+let fourStorage = [JSON.parse(localStorage.getItem("fourStorage"))] || [];
+console.log(fourStorage);
+
+// Populate event div with local storage data if found, else div is empty
+fourOutput.textContent = fourStorage;
+
+// Save event
+fourInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const fourEvent = fourInpTxt.value;
+
+  //   If form has text
+  if (fourEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("fourStorage"));
+
+    // Update the event in storage array
+    fourStorage.shift();
+    fourStorage.push(fourEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("fourStorage", JSON.stringify(fourEvent));
+    console.log("New event is " + localStorage.getItem("fourStorage"));
+
+    // Change the text content of the div to the new event
+    fourOutput.textContent = JSON.parse(localStorage.getItem("fourStorage"));
+  }
+};
+
+// Logic for 5PM event block
+// Establish variables
+const fiveInpTxt = document.getElementById("fiveInpTxt");
+const fiveInsBtn = document.getElementById("fiveInsBtn");
+const fiveOutput = document.getElementById("fiveOutput");
+
+// Create array or parse array on load
+let fiveStorage = [JSON.parse(localStorage.getItem("fiveStorage"))] || [];
+console.log(fiveStorage);
+
+// Populate event div with local storage data if found, else div is empty
+fiveOutput.textContent = fiveStorage;
+
+// Save event
+fiveInsBtn.onclick = function () {
+  //   Declare variable as user input in form
+  const fiveEvent = fiveInpTxt.value;
+
+  //   If form has text
+  if (fiveEvent) {
+    //   Log the old event
+    console.log("Old event is " + localStorage.getItem("fiveStorage"));
+
+    // Update the event in storage array
+    fiveStorage.shift();
+    fiveStorage.push(fiveEvent);
+
+    // Send the updated array to local storage
+    localStorage.setItem("fiveStorage", JSON.stringify(fiveEvent));
+    console.log("New event is " + localStorage.getItem("fiveStorage"));
+
+    // Change the text content of the div to the new event
+    fiveOutput.textContent = JSON.parse(localStorage.getItem("fiveStorage"));
   }
 };
 
