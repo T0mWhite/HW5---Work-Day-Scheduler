@@ -30,62 +30,76 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-        <!-- Timeblocks go here -->
-        <table class="table">
-            <tbody>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">9AM</th>
-              <td class="description flex-grow-1 redtest" id="nine">
-                  <form id="nine-form">
-                      <input type="text" id="nine-input"/>
-                  </form>
-              </td>
-              <td class="greentest">
-                    <input type="submit" form="nine-form" data="schedSubmit"/>
-              </td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">10AM</th>
-              <td class="description flex-grow-1 redtest"  id="ten">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">11AM</th>
-              <td class="description flex-grow-1 redtest" id="eleven">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">12PM</th>
-              <td class="description flex-grow-1 redtest" id="twelve">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">1PM</th>
-              <td class="description flex-grow-1 redtest" id="thirteen">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">2PM</th>
-              <td class="description flex-grow-1 redtest" id="fourteen">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">3PM</th>
-              <td class="description flex-grow-1 redtest" id="fifteen">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">4PM</th>
-              <td class="description flex-grow-1 redtest" id="sixteen">---</td>
-              <td class="greentest">Country</td>
-            </tr>
-            <tr class="row d-flex justify-content-between">
-              <th class="hour bluetest" scope="row">5PM</th>
-              <td class="description flex-grow-1 redtest" id="seventeen">---</td>
-              <td class="greentest">Country</td>
-            </tr>
+      <!-- Timeblocks -->
+      <table class="table">
+        <tbody>
+          <!-- 9am -->
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">9AM</th>
+            <td class="description flex-grow-1 redtest" id="nine">
+              <input type="text" id="nineInput" placeholder="Enter event to save...">
+              <div id="nineStorage">
+
+              </div>
+              <!-- <form id="nine-form">
+                <input type="text" id="nine-input" />
+              </form> -->
+            </td>
+            <td class="greentest">
+              <button type ="button" id="nineInsert">💾</button>
+              <!-- <button type="submit" form="nine-form" data="schedSubmit">Save</button> -->
+            </td>
+          </tr>
+          <!-- 10am
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">10AM</th>
+            <td class="description flex-grow-1 redtest" id="ten">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          11am
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">11AM</th>
+            <td class="description flex-grow-1 redtest" id="eleven">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          12pm
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">12PM</th>
+            <td class="description flex-grow-1 redtest" id="twelve">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          1pm
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">1PM</th>
+            <td class="description flex-grow-1 redtest" id="thirteen">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          2pm
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">2PM</th>
+            <td class="description flex-grow-1 redtest" id="fourteen">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          3pm
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">3PM</th>
+            <td class="description flex-grow-1 redtest" id="fifteen">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          4pm
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">4PM</th>
+            <td class="description flex-grow-1 redtest" id="sixteen">---</td>
+            <td class="greentest">Country</td>
+          </tr>
+          5pm
+          <tr class="row d-flex justify-content-between">
+            <th class="hour bluetest" scope="row">5PM</th>
+            <td class="description flex-grow-1 redtest" id="seventeen">---</td>
+            <td class="greentest">Country</td>
+          </tr> -->
         </tbody>
-        </table>
+      </table>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
