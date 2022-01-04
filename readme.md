@@ -18,8 +18,6 @@ Visit the application live site.
 
 ![Example](./assets/images/Example.png)
 
-[Youtube Video of Application in Action](https://youtu.be/L1EJCYBBJR0)
-
   ## License
 
 
