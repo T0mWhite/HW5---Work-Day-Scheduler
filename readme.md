@@ -32,7 +32,7 @@ Visit the application live site.
   
   #### Github
   
-  https://github.com/github.com/T0mWhite
+  https://github.com/T0mWhite
   
 
   
