@@ -75,7 +75,7 @@ const nineInsBtn = document.getElementById("nineInsBtn");
 const nineOutput = document.getElementById("nineOutput");
 
 // Create array or parse array on load
-let nineStorage = [JSON.parse(localStorage.getItem("nineStorage"))] || [];
+let nineStorage = JSON.parse(localStorage.getItem("nineStorage")) || [];
 console.log(nineStorage);
 
 // Populate event div with local storage data if found, else div is empty
@@ -100,7 +100,8 @@ nineInsBtn.onclick = function () {
     console.log("New event is " + localStorage.getItem("nineStorage"));
 
     // Change the text content of the div to the new event
-    nineOutput.textContent = JSON.parse(localStorage.getItem("nineStorage"));
+    // nineOutput.textContent = JSON.parse(localStorage.getItem("nineStorage"));
+    nineInpTxt.value = JSON.parse(localStorage.getItem("nineStorage"));
   }
 };
 
@@ -391,45 +392,3 @@ fiveInsBtn.onclick = function () {
     fiveOutput.textContent = JSON.parse(localStorage.getItem("fiveStorage"));
   }
 };
-
-// let nineFormSubmit = document.querySelector('#nine-form');
-
-// nineFormSubmit.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let nineInput = document.querySelector('#nine-input');
-//     let eventDescription = {
-//         description: nineInput.value,
-//         time: nine.time
-//     }
-//     localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-//     eventStorage.push(eventDescription);
-// });
-
-// localStorage.setItem('eventStorage', JSON.stringify(eventDescription));
-
-// eventStorage.forEach(function(events) {
-//     nineInput.textContent = eventDescription.description;
-//     window.localStorage.getItem("eventStorage", JSON.stringify(eventDescription));
-// });
-
-// let retrievedEvent = JSON.parse(localStorage.getItem("eventStorage"));
-
-// for (let j = 0; j < retrievedEvent.length; j++) {
-//     console.log(retrievedEvent[j].description);
-//   }
-
-// let eventDescription = [{ 'description': 'nineInput.value'}, {
-//     '': 'Robert', 'score': 80, 'time': '15:00' }];
-//     localStorage.setItem('testObject', JSON.stringify(testObject));
-
-//     var retrievedObject = JSON.parse(localStorage.getItem('testObject'));
-
-//     var tbody = document.getElementById('tbody');
-
-//     for (let i = 0; i < retrievedObject.length; i++) {
-//       var tr = "<tr>";
-//       tr += "<td>Name</td>" + "<td>" + retrievedObject[i].name + "</td></tr>";
-//       tr += "<td>Score</td>" + "<td>" + retrievedObject[i].score + "</td></tr>";
-//       tr += "<td>Time</td>" + "<td>" + retrievedObject[i].time + "</td></tr>";
-//       tbody.innerHTML += tr;
-//     }
